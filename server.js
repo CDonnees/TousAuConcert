@@ -18,7 +18,7 @@ function parseJsonResults(rset) {
 
 async function sparqlexec(endpoint, query) {
     const format = 'application/sparql-results+json';
-    const result = await fetch(`http://data.bnf.fr/sparql?query=${encodeURIComponent(query)}&format=${encodeURIComponent(format)}&timeout=0`);
+    const result = await fetch(endpoint`?query=${encodeURIComponent(query)}&format=${encodeURIComponent(format)}&timeout=0`);
     return parseJsonResults(await result.json());
 }
 
