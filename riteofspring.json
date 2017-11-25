@@ -1,0 +1,161 @@
+{
+    "work": {
+        "rdarelationships:expressionOfWork": [
+            "http://data.bnf.fr/ark:/12148/cb37811548j#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb38096868m#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb381119117#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb38194275x#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb38256893b#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb38410437t#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb384104385#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb38418052j#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb384520193#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb38580531n#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb42230489d#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb426614471#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb42663730m#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb432876080#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43287607n#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb432876127#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43287616m#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43287609b#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43287611w#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43287614x#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43287617z#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb432876158#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43570831p#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43617057s#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43618723n#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43650518d#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43732188q#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb43818416w#frbr:Expression",
+            "http://data.bnf.fr/ark:/12148/cb44292108r#frbr:Expression"
+        ],
+        "skos:exactMatch": [
+            "http://fr.dbpedia.org/resource/Le_Sacre_du_printemps",
+            "http://viaf.org/viaf/294749770/",
+            "https://www.human-music.eu/work/89237",
+            "https://musicbrainz.org/work/54dacada-b00c-34b6-bbbb-e89855c7219f",
+            "http://wikidata.org/entity/Q206015"
+        ],
+        "skos:note": [
+            "Il existe une version pour piano \u00e0 4 mains par le compositeur",
+            "Stravinsky a modifi\u00e9 la partition \u00e0 de nombreuses reprises, \u00e0 des degr\u00e9s divers. En 1929, \"L'\u00e9vocation des anc\u00eatres\" et des passages de la \"Danse sacrale\" furent r\u00e9\u00e9crits. En 1943, la \"Danse sacrale\" fut r\u00e9orchestr\u00e9e. - La version de 1947 (Londres : Boosey & Hawks, 1948) int\u00e8gre les diff\u00e9rentes modifications apport\u00e9es \u00e0 la version de 1913",
+            "Musique du ballet de m\u00eame titre, sur un argument de Nikolaj Rerih et du compositeur. - Sous-titre : \"sc\u00e8nes de la Russie pa\u00efenne\". - Dates de composition : 1911-1913. - 1re repr\u00e9sentation : Paris, Th\u00e9\u00e2tre des Champs-\u00c9lys\u00e9es, le 29 mai 1913, sous la direction de Pierre Monteux. - 1re repr\u00e9sentation \u00e0 l'Op\u00e9ra de Paris : 27 mai 1922. - 1re \u00e9d. : \u00c9dition russe de musique, 1921"
+        ],
+        "owl:sameAs": "http://data.bnf.fr/ark:/12148/cb139200027#about",
+        "dcterms:created": "1989-08-21",
+        "dcterms:date": "1911",
+        "skos:altLabel": [
+            "Rites of spring. 1913. Orchestre. W 21",
+            "The rite of spring. 1913. Orchestre. W 21",
+            "Vesna sv\u00e2\u015denna\u00e2. 1913. Orchestre. W 21"
+        ],
+        "dcterms:creator": [
+            "http://data.bnf.fr/ark:/12148/cb12405560k#about",
+            "http://data.bnf.fr/ark:/12148/cb12405560k#foaf:Person"
+        ],
+        "dcterms:subject": [
+            "http://data.bnf.fr/ark:/12148/cb16661706h",
+            "http://data.bnf.fr/ark:/12148/cb16661706h",
+            "http://dewey.info/class/780/"
+        ],
+        "bnf-onto:FRBNF": 13920002,
+        "http://purl.org/ontology/mo/genre": "http://data.bnf.fr/vocabulary/musical-genre/bt",
+        "bnf-onto:lastYear": 1913,
+        "rdfs:label": "Le sacre du printemps. 1913. Orchestre. W 21",
+        "rdfs:seeAlso": "http://catalogue.bnf.fr/ark:/12148/cb139200027",
+        "foaf:depiction": [
+            "https://upload.wikimedia.org/wikipedia/commons/9/9b/Theatre-des-champs-elysees-.jpg"
+        ],
+        "rdagroup1elements:dateOfWork": "http://data.bnf.fr/date/1911/",
+        "bnf-onto:subject": "Musique",
+        "dcterms:description": [
+            "Il existe une version pour piano \u00e0 4 mains par le compositeur",
+            "Stravinsky a modifi\u00e9 la partition \u00e0 de nombreuses reprises, \u00e0 des degr\u00e9s divers. En 1929, \"L'\u00e9vocation des anc\u00eatres\" et des passages de la \"Danse sacrale\" furent r\u00e9\u00e9crits. En 1943, la \"Danse sacrale\" fut r\u00e9orchestr\u00e9e. - La version de 1947 (Londres : Boosey & Hawks, 1948) int\u00e8gre les diff\u00e9rentes modifications apport\u00e9es \u00e0 la version de 1913",
+            "Musique du ballet de m\u00eame titre, sur un argument de Nikolaj Rerih et du compositeur. - Sous-titre : \"sc\u00e8nes de la Russie pa\u00efenne\". - Dates de composition : 1911-1913. - 1re repr\u00e9sentation : Paris, Th\u00e9\u00e2tre des Champs-\u00c9lys\u00e9es, le 29 mai 1913, sous la direction de Pierre Monteux. - 1re repr\u00e9sentation \u00e0 l'Op\u00e9ra de Paris : 27 mai 1922. - 1re \u00e9d. : \u00c9dition russe de musique, 1921"
+        ],
+        "skos:prefLabel": "Le sacre du printemps. 1913. Orchestre. W 21",
+        "skos:editorialNote":
+            "White, Stravinsky. - . - Grove music online. - http://www.oxfordmusiconline.com. - 2011-11-16",
+        "rdf:type": [
+            "http://www.w3.org/2004/02/skos/core#Concept",
+            "http://rdvocab.info/uri/schema/FRBRentitiesRDA/Work"
+        ],
+        "dcterms:title": "Le sacre du printemps. 1913. Orchestre. W 21",
+        "dcterms:contributor": "http://data.bnf.fr/ark:/12148/cb12380556m#about",
+        "bnf-onto:firstYear": 1911,
+        "foaf:focus": "http://data.bnf.fr/ark:/12148/cb139200027#frbr:Work",
+        "dcterms:modified": "2013-10-31"
+    },
+    "performance": {
+        "rdagroup1elements:placeOfProduction":
+            "http://databnf.novalocal:8080/ark:/12148/cb16946601t",
+        "bnf-onto:FRBNF": 39684784,
+        "rdf:type": [
+            "http://www.w3.org/2004/02/skos/core#Concept",
+            "http://rdvocab.info/uri/schema/FRBRentitiesRDA/Work",
+            "http://purl.org/dc/dcmitype/Event"
+        ],
+        "rdfs:seeAlso": "http://catalogue.bnf.fr/ark:/12148/cb396847842",
+        "rdfs:label": "Le sacre du printemps",
+        "dcterms:title":
+            "Le sacre du printemps : tableaux de la Russie pa\u00efenne en 2 parties / chor\u00e9graphie de Vaslav Nijinsky",
+        "foaf:page": "http://databnf.novalocal:8080/39684784/le_sacre_du_printemps_spectacle_1913/",
+        "bnf-onto:firstYear": 1913,
+        "skos:prefLabel":
+            "Le sacre du printemps : tableaux de la Russie pa\u00efenne en 2 parties / chor\u00e9graphie de Vaslav Nijinsky",
+        "owl:sameAs": "http://databnf.novalocal:8080/ark:/12148/cb396847842#about",
+        "schema:location": "Paris (France) : Th\u00e9\u00e2tre des Champs-Elys\u00e9es",
+        "dcterms:created": "2005-07-27",
+        "dcterms:date": "1913-05-29",
+        "dcterms:description":
+            "Paris (France) : Th\u00e9\u00e2tre des Champs-Elys\u00e9es - 29-05-1913",
+        "foaf:focus": "http://databnf.novalocal:8080/ark:/12148/cb396847842#frbr:Work",
+        "dcterms:modified": "2010-08-04",
+        "dcterms:subject": "http://databnf.novalocal:8080/ark:/12148/cb15541880g#frbr:Work"
+    },
+    "ballet": {},
+    "icono": [
+        "http://gallica.bnf.fr/ark:/12148/btv1b8415121d.lowres",
+        "http://gallica.bnf.fr/ark:/12148/btv1b525043733/f1.lowres",
+        "http://gallica.bnf.fr/ark:/12148/btv1b7003005w/f1.lowres",
+        "http://gallica.bnf.fr/ark:/12148/btv1b7003269h/f1.lowres",
+        "http://gallica.bnf.fr/ark:/12148/btv1b8415199c/f1.lowres"
+    ],
+    "work2": {
+        "title": ["Le Sacre du printemps", "Le Sacre du printemps pour deux pianos"],
+        "author": {
+            "label": "Igor Stravinsky",
+            "id": {
+                "uri":
+                    "http://data.doremus.org/describe/?url=http%3A%2F%2Fdata.doremus.org%2Fartist%2F1f1c9292-087a-3ac7-b854-84e213e69dc6",
+                "source": "doremus"
+            },
+            "comment":
+                "Igor Fiodorovitch Stravinski (en russe) Oranienbaum, Russie, 17 juin 1882 New York, 6 avril 1971) était un compositeur et chef d'orchestre russe (naturalisé français en 1934, puis américain en 1945) de l'époque moderne, considéré comme l'un des compositeurs les plus influents du XXe siècle. L'oeuvre de Stravinski, qui s'étend sur près de soixante-dix années, se caractérise par sa grande diversité de styles. Le compositeur accéda à la célébrité durant sa première période créatrice avec trois ballets qu'il composa pour les Ballets russes de Diaghilev : L'Oiseau de feu (1910), Petrouchka (1911) et surtout Le Sacre du Printemps (1913). Le Sacre, son oeuvre la plus célèbre, eut un impact considérable sur la façon d'aborder le rythme en musique. Dans les années 1920 sa production musicale prit un virage néoclassique et renoua avec les formes traditionnelles (concerto grosso, fugue et symphonie). Dans les années 1950 enfin, Stravinski explora les possibilités de la musique sérielle en utilisant les techniques les plus avancées de son époque. Igor Stravinski est né le 17 juin 1882 à Oranienbaum, où ses parents se trouvaient en vacances, mais il passa toute son enfance au 66 Krukov Kanal, à Saint-Pétersbourg, où la famille résidait. Son père, Fiodor Stravinski était une basse chantant au théâtre Mariinsky de Saint-Pétersbourg. Igor était le troisième d'une famille de quatre enfants. La vie familiale était difficile. Ses parents étaient sévères et les rapports qu'il avait avec ses deux frères aînés étaient également froids. « Il ne me montrait de tendresse que lorsque j'étais malade[1] », écrit-il à propos de son père dans Souvenirs et commentaires. Malgré le fait que son père soit un chanteur de renom, le jeune Stravinski n'a très peu de contacts avec la musique classique dans sa jeunesse. En 1890, à huit ans, La Belle au bois dormant de Tchaïkovski et plus tard Une vie pour le tsar de Glinka restent ses deux seules expériences de concert importantes de  son enfance[2]. Igor débute des leçons de piano à l'âge de neuf ans et « ne semble du reste pas montrer de dispositions particulières pour la musique[3] ». Ce que le jeune enfant aimait le plus faire au piano, c'était improviser, malgré les nombreux reproches qu'on lui faisait. « Ce travail continu d'improvisations n'était pas absolument stérile, car il contribuait d'une part à une meilleure connaissance du piano, et d'autre part faisait germer des idées musicales[4] », écrit-il dans ses Chroniques de ma vie. À son premier professeur succèdera Mme Khachperova, élève d'Anton Rubinstein, qui fait travailler à Stravinski le répertoire classique et romantique d'une manière très autoritaire, allant même jusqu'à interdire totalement l'usage de la pédale. Ses premiers essais de composition n'étant pas suffisamment satisfaisant, son père l'inscrit à la faculté de droit de Saint-Pétersbourg en 1901. Durant la même période, il prend des leçons d'harmonie et de contrepoint. Quoique l'étude de l'harmonie ne lui donne « aucune satisfaction[5] », il s'exerce beaucoup au contrepoint pour son propre compte. Cependant, le décès de son père le 21 novembre 1902 lui enlève un poids considérable. Même s'il reste inscrit pendant quatre ans à l'université, il n'assiste au plus qu'à une cinquantaine de cours. Il passe maintenant ses soirées au théâtre Mariinski et aux concerts symphoniques de la Société impériale et fait d'autres essais de compositions dont le chant Nuages d'orage et un Scherzo pour piano. Le point tournant de l'éducation musicale de Stravinski est sa rencontre avec Nikolaï Rimski-Korsakov pendant l'été 1902. « Je lui exposai mon désir de devenir compositeur et lui demandai son avis[6]. », raconte-t-il. Le célèbre compositeur, lui déconseillant le Conservatoire, lui dit qu'il serait prêt à lui enseigner une fois qu'il aurait acquis les notions élémentaires d'harmonie et de contrepoint. C'est l'été suivant que Rimski-Korsakov commence à lui donner des leçons, après avoir en tendu sa Sonate \nLa maggior parte dei suoi lavori rientra nell'ambito del neoclassicismo e poi della serialità, ma la sua popolarità presso il grande pubblico si deve ai tre balletti composti durante il suo primo periodo (Balletti russi): L'uccello di fuoco (1910), Petruška (1911) e La sagra della primavera (1913), opere che reinventarono il genere del balletto. Stravinskij scrisse per ogni tipo di organico, spesso riutilizzando forme classiche. La sua opera omnia include composizioni d'ogni genere, dalle sinfonie alle miniature per pianoforte.",
+            "role": "compositeur",
+            "birthdate": "1882-06-17",
+            "deathdate": "1971-04-06",
+            "depiction":
+                "http://commons.wikimedia.org/wiki/Special:FilePath/Igor_Stravinsky_LOC_32392u.jpg"
+        },
+        "comment":
+            "Musique du ballet de même titre, sur un argument de Nikolaï Rerikh et du compositeur\nVersion intégrant les différentes modifications apportées par le compositeur à la version de 1913\n    Éd. : Londres : Boosey & Hawks, 1948",
+        "genre": {
+            "label": "Musique de ballet",
+            "uri": "http://data.doremus.org/vocabulary/iaml/genre/bt"
+        },
+        "dates": "1911/1913",
+        "id": [
+            {
+                "uri": "http://catalogue.bnf.fr/ark:/12148/cb139819893.intermarc",
+                "type": "arkbnf"
+            },
+            {
+                "uri": "http://data.doremus.org/expression/e374edbb-6482-38c8-a5d7-addb0039be9a",
+                "type": "doremus"
+            }
+        ]
+    }
+}
