@@ -1,0 +1,23 @@
+{
+  "name": "tousauconcert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bnfhack/TousAuConcert.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bnfhack/TousAuConcert/issues"
+  },
+  "homepage": "https://github.com/bnfhack/TousAuConcert#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-fetch": "^1.7.3"
+  }
+}
