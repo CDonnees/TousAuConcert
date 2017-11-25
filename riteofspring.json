@@ -1,0 +1,124 @@
+{
+    "work":
+{
+    "rdarelationships:expressionOfWork": [
+      "http://data.bnf.fr/ark:/12148/cb37811548j#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb38096868m#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb381119117#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb38194275x#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb38256893b#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb38410437t#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb384104385#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb38418052j#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb384520193#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb38580531n#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb42230489d#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb426614471#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb42663730m#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb432876080#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43287607n#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb432876127#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43287616m#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43287609b#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43287611w#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43287614x#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43287617z#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb432876158#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43570831p#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43617057s#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43618723n#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43650518d#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43732188q#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb43818416w#frbr:Expression",
+      "http://data.bnf.fr/ark:/12148/cb44292108r#frbr:Expression"
+    ],
+    "skos:exactMatch": [
+      "http://fr.dbpedia.org/resource/Le_Sacre_du_printemps",
+      "http://viaf.org/viaf/294749770/",
+      "https://www.human-music.eu/work/89237",
+      "https://musicbrainz.org/work/54dacada-b00c-34b6-bbbb-e89855c7219f",
+      "http://wikidata.org/entity/Q206015"
+    ],
+    "skos:note": [
+      "Il existe une version pour piano \u00e0 4 mains par le compositeur",
+      "Stravinsky a modifi\u00e9 la partition \u00e0 de nombreuses reprises, \u00e0 des degr\u00e9s divers. En 1929, \"L'\u00e9vocation des anc\u00eatres\" et des passages de la \"Danse sacrale\" furent r\u00e9\u00e9crits. En 1943, la \"Danse sacrale\" fut r\u00e9orchestr\u00e9e. - La version de 1947 (Londres : Boosey & Hawks, 1948) int\u00e8gre les diff\u00e9rentes modifications apport\u00e9es \u00e0 la version de 1913",
+      "Musique du ballet de m\u00eame titre, sur un argument de Nikolaj Rerih et du compositeur. - Sous-titre : \"sc\u00e8nes de la Russie pa\u00efenne\". - Dates de composition : 1911-1913. - 1re repr\u00e9sentation : Paris, Th\u00e9\u00e2tre des Champs-\u00c9lys\u00e9es, le 29 mai 1913, sous la direction de Pierre Monteux. - 1re repr\u00e9sentation \u00e0 l'Op\u00e9ra de Paris : 27 mai 1922. - 1re \u00e9d. : \u00c9dition russe de musique, 1921"
+    ],
+    "owl:sameAs": "http://data.bnf.fr/ark:/12148/cb139200027#about",
+    "dcterms:created": "1989-08-21",
+    "dcterms:date": "1911",
+    "skos:altLabel": [
+      "Rites of spring. 1913. Orchestre. W 21",
+      "The rite of spring. 1913. Orchestre. W 21",
+      "Vesna sv\u00e2\u015denna\u00e2. 1913. Orchestre. W 21"
+    ],
+    "dcterms:creator": [
+      "http://data.bnf.fr/ark:/12148/cb12405560k#about",
+      "http://data.bnf.fr/ark:/12148/cb12405560k#foaf:Person"
+    ],
+    "dcterms:subject": [
+      "http://data.bnf.fr/ark:/12148/cb16661706h",
+      "http://data.bnf.fr/ark:/12148/cb16661706h",
+      "http://dewey.info/class/780/"
+    ],
+    "bnf-onto:FRBNF": 13920002,
+    "http://purl.org/ontology/mo/genre": "http://data.bnf.fr/vocabulary/musical-genre/bt",
+    "bnf-onto:lastYear": 1913,
+    "rdfs:label": "Le sacre du printemps. 1913. Orchestre. W 21",
+    "rdfs:seeAlso": "http://catalogue.bnf.fr/ark:/12148/cb139200027",
+    "foaf:depiction": [
+      "https://upload.wikimedia.org/wikipedia/commons/9/9b/Theatre-des-champs-elysees-.jpg"
+    ],
+    "rdagroup1elements:dateOfWork": "http://data.bnf.fr/date/1911/",
+    "bnf-onto:subject": "Musique",
+    "dcterms:description": [
+      "Il existe une version pour piano \u00e0 4 mains par le compositeur",
+      "Stravinsky a modifi\u00e9 la partition \u00e0 de nombreuses reprises, \u00e0 des degr\u00e9s divers. En 1929, \"L'\u00e9vocation des anc\u00eatres\" et des passages de la \"Danse sacrale\" furent r\u00e9\u00e9crits. En 1943, la \"Danse sacrale\" fut r\u00e9orchestr\u00e9e. - La version de 1947 (Londres : Boosey & Hawks, 1948) int\u00e8gre les diff\u00e9rentes modifications apport\u00e9es \u00e0 la version de 1913",
+      "Musique du ballet de m\u00eame titre, sur un argument de Nikolaj Rerih et du compositeur. - Sous-titre : \"sc\u00e8nes de la Russie pa\u00efenne\". - Dates de composition : 1911-1913. - 1re repr\u00e9sentation : Paris, Th\u00e9\u00e2tre des Champs-\u00c9lys\u00e9es, le 29 mai 1913, sous la direction de Pierre Monteux. - 1re repr\u00e9sentation \u00e0 l'Op\u00e9ra de Paris : 27 mai 1922. - 1re \u00e9d. : \u00c9dition russe de musique, 1921"
+    ],
+    "skos:prefLabel": "Le sacre du printemps. 1913. Orchestre. W 21",
+    "skos:editorialNote": "White, Stravinsky. - . - Grove music online. - http://www.oxfordmusiconline.com. - 2011-11-16",
+    "rdf:type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://rdvocab.info/uri/schema/FRBRentitiesRDA/Work"
+    ],
+    "dcterms:title": "Le sacre du printemps. 1913. Orchestre. W 21",
+    "dcterms:contributor": "http://data.bnf.fr/ark:/12148/cb12380556m#about",
+    "bnf-onto:firstYear": 1911,
+    "foaf:focus": "http://data.bnf.fr/ark:/12148/cb139200027#frbr:Work",
+    "dcterms:modified": "2013-10-31"
+  },
+  "performance": {
+    "rdagroup1elements:placeOfProduction": "http://databnf.novalocal:8080/ark:/12148/cb16946601t",
+    "bnf-onto:FRBNF": 39684784,
+    "rdf:type": [
+      "http://www.w3.org/2004/02/skos/core#Concept",
+      "http://rdvocab.info/uri/schema/FRBRentitiesRDA/Work",
+      "http://purl.org/dc/dcmitype/Event"
+    ],
+    "rdfs:seeAlso": "http://catalogue.bnf.fr/ark:/12148/cb396847842",
+    "rdfs:label": "Le sacre du printemps",
+    "dcterms:title": "Le sacre du printemps : tableaux de la Russie pa\u00efenne en 2 parties / chor\u00e9graphie de Vaslav Nijinsky",
+    "foaf:page": "http://databnf.novalocal:8080/39684784/le_sacre_du_printemps_spectacle_1913/",
+    "bnf-onto:firstYear": 1913,
+    "skos:prefLabel": "Le sacre du printemps : tableaux de la Russie pa\u00efenne en 2 parties / chor\u00e9graphie de Vaslav Nijinsky",
+    "owl:sameAs": "http://databnf.novalocal:8080/ark:/12148/cb396847842#about",
+    "schema:location": "Paris (France) : Th\u00e9\u00e2tre des Champs-Elys\u00e9es",
+    "dcterms:created": "2005-07-27",
+    "dcterms:date": "1913-05-29",
+    "dcterms:description": "Paris (France) : Th\u00e9\u00e2tre des Champs-Elys\u00e9es - 29-05-1913",
+    "foaf:focus": "http://databnf.novalocal:8080/ark:/12148/cb396847842#frbr:Work",
+    "dcterms:modified": "2010-08-04",
+    "dcterms:subject": "http://databnf.novalocal:8080/ark:/12148/cb15541880g#frbr:Work"
+  },
+  "ballet": {
+
+  },
+  "icono": [
+    "http://gallica.bnf.fr/ark:/12148/btv1b8415121d.lowres",
+    "http://gallica.bnf.fr/ark:/12148/btv1b525043733/f1.lowres",
+    "http://gallica.bnf.fr/ark:/12148/btv1b7003005w/f1.lowres",
+    "http://gallica.bnf.fr/ark:/12148/btv1b7003269h/f1.lowres",
+    "http://gallica.bnf.fr/ark:/12148/btv1b8415199c/f1.lowres"
+  ]
+}
