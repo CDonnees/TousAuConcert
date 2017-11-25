@@ -25,7 +25,7 @@ async function sparqlexec(endpoint, query) {
 
 app.get('/work/:workid', async (req, res, next) => {
     try {
-        res.json(await sparqlexec('http://data.bnf.fr/', 'SELECT ?x ?p WHERE {?x ?p ?o} LIMIT 2'));
+        res.json(await sparqlexec('http://data.bnf.fr/sparql', 'SELECT ?x ?p WHERE {?x ?p ?o} LIMIT 2'));
     } catch (e) {
         //this will eventually be handled by your error handling middleware
         next(e)
