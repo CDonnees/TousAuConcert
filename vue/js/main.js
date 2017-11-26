@@ -10,6 +10,7 @@ new Vue({
         },
         critics: [],
         sheets: [],
+        sound: [],
     },
     created() {
         var param = document.location.search.split('?')[1];
@@ -39,7 +40,12 @@ new Vue({
                 .then(response => response.json())
                 .then(response => {
                     this.critics = response;
-                });
+            });
+            fetch(`http://localhost:3000/sound/${response.data.prefLabel}/${compname}`)
+                .then(response => response.json())
+                .then(response => {
+                    this.sound = response;
+            });
 })
         // .catch(e => () {
 

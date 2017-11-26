@@ -96,6 +96,14 @@
                     <p>{{sheet.description}}</p>
                 </div>
             </div>
+            
+            <div id="gallica-sounds">
+                <div v-for="track in sound.slice(0, 5)">
+                     <audio controls>
+                      <source :src="track.mp3uri" type="audio/mp3">
+                     </audio>
+                </div>
+            </div>
             <!--
             <div id="player">
               Deezer ? 
