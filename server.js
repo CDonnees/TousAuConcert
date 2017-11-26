@@ -223,7 +223,13 @@ async function bnfFetchWork(workid) {
       ?newExpr ?rel ?author.
       ?oldAuthor owl:sameAs ?author.
       ?authorConcept foaf:focus ?oldAuthor.
-
+      {
+          ?work dcterms:contributor ?oldAuthor
+      }
+      UNION
+      {
+          ?work dcterms:creator ?oldAuthor
+      }
       FILTER REGEX(?rel, '^http://data.bnf.fr/vocabulary/roles/(${Object.keys(roles).join("|")})')
     }    `);
     const done = new Set();
