@@ -245,9 +245,9 @@ async function bnfFetchWork(workid) {
     return workData;
 }
 
-app.get('/critics/:title/:year', async(req, res, next) => {
+app.get('/critics/:title/:author/:year', async(req, res, next) => {
     try {
-        res.json(await fetchCriticsFromGallica(req.params.title, req.params.year));
+        res.json(await fetchCriticsFromGallica(req.params.title, req.params.author, req.params.year));
     } catch (e) {
         //this will eventually be handled by your error handling middleware
         next(e)
@@ -255,9 +255,9 @@ app.get('/critics/:title/:year', async(req, res, next) => {
 });
 
 
-app.get('/sheets/:title', async(req, res, next) => {
+app.get('/sheets/:title/:author', async(req, res, next) => {
     try {
-        res.json(await fetchSheetsFromGallica(req.params.title));
+        res.json(await fetchSheetsFromGallica(req.params.title, req.params.author));
     } catch (e) {
         //this will eventually be handled by your error handling middleware
         next(e)
@@ -265,9 +265,9 @@ app.get('/sheets/:title', async(req, res, next) => {
 });
 
 
-app.get('/sound/:title', async(req, res, next) => {
+app.get('/sound/:title/:author', async(req, res, next) => {
     try {
-        res.json(await fetchSoundFromGallica(req.params.title));
+        res.json(await fetchSoundFromGallica(req.params.title, req.params.author));
     } catch (e) {
         //this will eventually be handled by your error handling middleware
         next(e)
