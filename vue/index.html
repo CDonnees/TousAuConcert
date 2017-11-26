@@ -78,6 +78,15 @@
             </div>
         -->
         </div>
+        <div id="player" v-if="player.cover && player.playlist">
+            <img :src="player.cover" />
+            <!-- <audio controls v-for='track in player.playlist'>{{description}}
+                <source :src="track.preview" />
+            </audio> -->
+            <audio controls>
+                <source :src="player.playlist[0].preview" />
+            </audio>
+        </div>
     </div>
 
     <script src="//unpkg.com/vue"></script>
