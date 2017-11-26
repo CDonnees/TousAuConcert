@@ -2,6 +2,7 @@ const fetch = require('node-fetch');
 const express = require('express');
 
 const {fetchCriticsFromGallica, fetchSheetsFromGallica, fetchSoundFromGallica} = require('./sru');
+const {fetchFromDeezer} = require('./deezer');
 
 const app = express();
 
@@ -264,6 +265,14 @@ app.get('/sound/:title', async(req, res, next) => {
     }
 });
 
+
+app.get('/deezer/:eans', async (req, res, next) => {
+    try {
+        res.json(await fetchFromDeezer(req.params.eans.split(',')));
+    } catch (e) {
+        next(e);
+    }
+});
 
 app.get('/work/:workid', async(req, res, next) => {
     try {
