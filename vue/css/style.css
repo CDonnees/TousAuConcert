@@ -1,31 +1,55 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
-    padding: 40px;
+    padding: 0px 40px 40px;
     font-family: 'Roboto', 'Open Sans', 'Fira Sans', 'Arial', sans-serif;
+    background: url("https://philharmoniedeparis.fr/profiles/pdp/themes/pdp_theme/img/trame-bg.jpg");
+}
+
+body.concert {
+    background: url("Screenshot_20171126_160105.png");
+}
+
+.concert .main {
+    box-shadow: 0 0 0;
 }
 
 #app {
     width: 1280px;
-    margin: 20px auto;
+    margin: 0px auto 20px;
 }
 
-#main {
-    width: 63%;
-    float: left;
+.main {
     padding: 15px;
     box-shadow: 0 0 12px #999;
     border-radius: 5px;
     margin-bottom: 60px;
 }
 
-#bandeau {
+.concert .main {
+    margin-top: 340px
+}
+
+.corps {
+    width: 63%;
+    float: left;
+}
+
+section {
+    padding: 15px;
+    box-shadow: 0 0 12px #999;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.bandeau {
     float: right;
-    width: 28%;
+    width: 30%;
     padding: 15px;
     margin-bottom: 60px;
     box-shadow: 0 0 12px #999;    
     border-radius: 5px;
+    text-align: center;
 }
 
 .thumbnailOeuvre {
@@ -35,7 +59,7 @@ body {
     margin-bottom: 20px;
 }
 
-p:first-of-type {
+h2>p {
     font-size: 1.45em;
     font-weight: bold;
     color: #666
@@ -66,4 +90,17 @@ p:first-of-type {
 
 #player img {
     max-width: 100%
+}
+
+#app>h1 {
+    padding: 30px;
+    text-align: center;
+    background-color: #eceff0;
+    font-size: 2.5em;
+    box-shadow: 0 0 12px #999;
+    border-radius: 5px;
+}
+
+.thumbnailContributor {
+    width: 200px
 }
