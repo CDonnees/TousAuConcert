@@ -37,7 +37,7 @@ const databnfPrefixes = {
     'time': 'http://www.w3.org/TR/owl-time/',
     'marcrel': 'http://id.loc.gov/vocabulary/relators/',
     'bnfroles': 'http://data.bnf.fr/vocabulary/roles/',
-    'mo': 'http://musicontology.com/',
+    'mo': 'http://purl.org/ontology/mo/',
     'geo': 'http://www.w3.org/2003/01/geo/wgs84_pos#',
     'ign': 'http://data.ign.fr/ontology/topo.owl/',
     'insee': 'http://rdf.insee.fr/geo/',
@@ -90,6 +90,31 @@ function simplifyData(data, namespaces) {
     return props;
 }
 
+function exposeData(data) {
+    const normalizeMap = {
+        'skos:note': 'notes',
+        'skos:prefLabel': 'prefLabel',
+        'skos:altLabel': 'altLabels',
+        'bnf-onto:lastYear': 'year',
+        'rdarelationships:expressionOfWok': 'expressions',
+        'dcterms:description': 'description',
+        'mo:genre': 'genre',
+        'contributors': 'contributors',
+        'foaf:depiction': 'depictions',
+        'dbpedia:abstract': 'abstract',
+        'http://data.bnf.fr/vocabulary/roles/r70': 'r70',
+        'http://data.bnf.fr/vocabulary/roles/r80': 'r80',
+        'http://data.bnf.fr/vocabulary/roles/r160': 'r160',
+        'http://data.bnf.fr/vocabulary/roles/r220': 'r220',
+    };
+    const exposed = {};
+    for (const key of Object.keys(normalizeMap)) {
+        if (data[key] !== undefined) {
+            exposed[normalizeMap[key]] = data[key];
+        }
+    }
+    return exposed;
+}
 
 function parseJsonResults(rset) {
     const results = [];
@@ -114,6 +139,17 @@ async function sparqlexec(endpoint, query) {
     return parseJsonResults(await result.json());
 }
 
+
+async function fetchFromDbpedia(uri) {
+    const dbpediaInfos = await sparqlexec('http://fr.dbpedia.org/sparql', `
+    SELECT ?abstract WHERE {
+        <${uri}> <http://dbpedia.org/ontology/abstract> ?abstract.
+        FILTER (lang(?abstract) = 'fr')
+    }`);
+    return dbpediaInfos.length === 1 ? dbpediaInfos[0] : null;
+}
+
+
 async function bnfFetchAuthority(noticeid) {
     const match = /ark:\/12148\/cb([0-9]{8})/.exec(noticeid);
     if (match !== null) {
@@ -134,6 +170,14 @@ async function bnfFetchAuthority(noticeid) {
         ?work ?attr ?value.
     }`));
     rawData = simplifyData(rawData, databnfPrefixes);
+    if (rawData['owl:sameAs'] !== undefined && rawData['owl:sameAs'] instanceof Array) {
+        for (const uri of rawData['owl:sameAs']) {
+            if (uri.startsWith('http://fr.dbpedia.org')) {
+                rawData['dbpedia:abstract'] = await fetchFromDbpedia(uri);
+            }
+        }
+    }
+    rawData = exposeData(rawData);
     CACHE.set(noticeid, rawData);
     return rawData;
 }
@@ -158,7 +202,8 @@ async function bnfFetchWork(workid) {
       FILTER REGEX(?rel, '^http://data.bnf.fr/vocabulary/roles/(${Object.keys(roles).join("|")})')
     }    `);
     const contributors = {};
-    for (const {authorConcept, rel} of contributorRoles) {
+    for (let {authorConcept, rel} of contributorRoles) {
+        rel = rel.slice(rel.lastIndexOf('/') + 1);
         const authordata = await bnfFetchAuthority(authorConcept);
         if (contributors[rel] === undefined) {
             contributors[rel] = [authordata];
