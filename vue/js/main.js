@@ -12,10 +12,12 @@ new Vue({
         sheets: [],
     },
     created() {
-
+        var param = document.location.search.split('?')[1];
+        var params = param.split('&');
+        var work_id = params[0].split('=')[1];
         axios
-        .get('http://localhost:3000/work/13920002')
-        // .get('http://localhost:3000/work/14005127')
+        .get('http://localhost:3000/work/'+work_id)
+        //.get('http://localhost:3000/work/14005127')
         .then(response => {
             this.oeuvre = response.data;
             if (response.data.eans && response.data.eans.length) {

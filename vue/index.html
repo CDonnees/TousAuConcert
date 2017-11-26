@@ -20,47 +20,54 @@
 
 <body>
     <div id="app">
-        <div id="main">
-            <div class="oeuvre">
-                <div class='header'>
-                    <img :src='oeuvre.depictions' :alt="oeuvre.prefLabel" class='thumbnailOeuvre' >
-                    <h1>{{oeuvre.prefLabel}}</h1>
-                    <p>{{oeuvre.year}}</p>                    
+        <h1>Tous au concert</h1>
+        <div class="corps">
+            <section>
+                <div class="oeuvre">
+                    <div class='header'>
+                        <img :src='oeuvre.depictions' :alt="oeuvre.prefLabel" class='thumbnailOeuvre' >
+                        <h1>{{oeuvre.prefLabel}}</h1>
+                        <p>{{oeuvre.year}}</p>                    
+                    </div>
+                    <div class='content'>
+                        <p v-if='typeof oeuvre.description != "object"'>{{ oeuvre.description }}</p>
+                        <p v-else v-for='(description, index) in oeuvre.description' :key="index">{{description}}</p>
+                        <p>{{oeuvre.note}}</p>
+                    </div>
                 </div>
-                <div id='content'>
-                    <p v-for='(description, index) in oeuvre.description' :key="index">{{description}}</p>
-                    <p>{{oeuvre.note}}</p>
-                </div>
-            </div>
-            <div class='contributors'>
-                <div class='contributorsRole' v-for='(contributorsRole, role) in oeuvre.contributors' :key="role">
-                    <div class='contributor' v-for='(contributor, index) in contributorsRole' :key="index">
-                        <div class='header'>
-                            <img :src='contributor.depictions[0]' :alt="contributor.prefLabel" v-if='contributor.depictions' class='thumbnailContributor' />
-                            <h2>{{ contributor.prefLabel }}</h2>
-                        </div>
-                        <div class='content'>
-                            <p>{{ contributor.notes }}</p>
-                            <p v-if='contributor.abstract'>{{ contributor.abstract.abstract }}</p>
+            </section>
+            <section>
+                <div class='contributors'>
+                    <div class='contributorsRole' v-for='(contributorsRole, role) in oeuvre.contributors' :key="role">
+                        <h2>{{ role }}</h2>
+                        <div class='contributor' v-for='(contributor, index) in contributorsRole' :key="index">
+                            <div class='header'>
+                                <img :src='contributor.depictions[0]' :alt="contributor.prefLabel" v-if='contributor.depictions' class='thumbnailContributor' />
+                                <h3>{{ contributor.prefLabel }}</h3>
+                            </div>
+                            <div class='content'>
+                                <p>{{ contributor.notes }}</p>
+                                <p v-if='contributor.abstract'>{{ contributor.abstract.abstract }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--
-            <div id="autres_representations">
-                <div class="representation" v-for="(representation, index) in representations" :key="index">
-                    
+                <!--
+                <div id="autres_representations">
+                    <div class="representation" v-for="(representation, index) in representations" :key="index">
+                        
+                    </div>
                 </div>
-            </div>
-            <div id="critiques">
-                <div class="critique" v-for="(critique, index) in critiques" :key="index">
-                    <h3>{{critique.title}}</h3>
-                    <img :src="critique.depiction" :alt="critique.title">
-                    <p>{{critique.description}}</p>
-                </div>
-            </div>-->
+                <div id="critiques">
+                    <div class="critique" v-for="(critique, index) in critiques" :key="index">
+                        <h3>{{critique.title}}</h3>
+                        <img :src="critique.depiction" :alt="critique.title">
+                        <p>{{critique.description}}</p>
+                    </div>
+                </div>-->
+            </section>
         </div>
-        <div id="bandeau">
+        <div class="bandeau">
              <!-- 
             <div id="picto">
                 <div class="picto" v-for="picto in pictos">
@@ -80,6 +87,13 @@
                 <div v-for="critic in critics.slice(0, 5)">
                     <a :href="critic.uri"><img :src="critic.depiction" /></a>
                     <p>{{critic.description}}</p>
+                </div>
+            </div>
+            <hr v-if='sheets.length'/>
+            <div id="sheets">
+                <div v-for="sheet in sheets.slice(0, 5)">
+                    <a :href="sheet.uri"><img :src="sheet.depiction" /></a>
+                    <p>{{sheet.description}}</p>
                 </div>
             </div>
             <!--
