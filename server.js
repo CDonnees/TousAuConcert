@@ -90,6 +90,31 @@ function simplifyData(data, namespaces) {
     return props;
 }
 
+function exposeData(data) {
+    const normalizeMap = {
+        'skos:note': 'notes',
+        'skos:prefLabel': 'prefLabel',
+        'skos:altLabel': 'altLabels',
+        'bnf-onto:lastYear': 'year',
+        'rdarelationships:expressionOfWok': 'expressions',
+        'dcterms:description': 'description',
+        'mo:genre': 'genre',
+        'contributors': 'contributors',
+        'foaf:depiction': 'depictions',
+        'dbpedia:abstract': 'abstract',
+        'http://data.bnf.fr/vocabulary/roles/r70': 'r70',
+        'http://data.bnf.fr/vocabulary/roles/r80': 'r80',
+        'http://data.bnf.fr/vocabulary/roles/r160': 'r160',
+        'http://data.bnf.fr/vocabulary/roles/r220': 'r220',
+    };
+    const exposed = {};
+    for (const key of Object.keys(normalizeMap)) {
+        if (data[key] !== undefined) {
+            exposed[normalizeMap[key]] = data[key];
+        }
+    }
+    return exposed;
+}
 
 function parseJsonResults(rset) {
     const results = [];
