@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="main">
+            <div id="oeuvre">
+                <img src="oeuvre.img.url" alt="oeuvre.title">
+                <h2>{{oeuvre.title}}</h2>
+                <h3>{{oeuvre.auteur}}</h3>
+            </div>
+            <div id="autres_representations">
+                <div class="representation" v-for="(representation, index) in representations" :key="index">
+                    <!-- à définir -->
+                </div>
+            </div>
+            <div id="critiques">
+                <div class="critique" v-for="(critique, index) in critiques" :key="index">
+                    <h3>{{critique.title}}</h3>
+                    <img :src="critique.depiction" :alt="critique.title">
+                    <p>{{critique.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div id="bandeau">
+            <div id="picto">
+                <div class="picto" v-for="picto in pictos">
+                    <img src="picto.url" alt="picto.title">
+                </div>
+            </div>
+            <div id="player">
+                <!-- Deezer ? -->
+                <script>
+                        (function(d, s, id) { 
+                        var js, djs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return; 
+                        js = d.createElement(s); js.id = id; 
+                        js.src = "https://e-cdns-files.dzcdn.net/js/widget/loader.js"; 
+                         djs.parentNode.insertBefore(js, djs);
+                    }(document, "script", "deezer-widget-loader"));
+                </script>
+                    
+                    <div class="deezer-widget-player" data-src="https://www.deezer.com/plugins/player?format=square&autoplay=false&playlist=false&width=300&height=300&color=007FEB&layout=dark&size=medium&type=playlist&id=30595446&app_id=1" data-scrolling="no" data-frameborder="0" data-allowTransparency="true" data-width="300" data-height="300"></div>
+            </div>
+            <div id="partitions">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="//unpkg.com/vue"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
