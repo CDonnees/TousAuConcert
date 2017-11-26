@@ -30,13 +30,15 @@ new Vue({
                             }
                         }
                     });
-                fetch(`http://localhost:3000/critics/${response.data.prefLabel}/${response.data.year}`)
-                    .then(response => response.json())
-                    .then(response => {
-                        this.critics = response;
-                    });
             }
-        })
+            let compname = response.data.contributors.compositeur[0].prefLabel;
+            compname = compname.split('(')[0].trim();
+            fetch(`http://localhost:3000/critics/${response.data.prefLabel}/${compname}/${response.data.year}`)
+                .then(response => response.json())
+                .then(response => {
+                    this.critics = response;
+                });
+})
         // .catch(e => () {
 
         // })
