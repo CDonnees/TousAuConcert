@@ -226,9 +226,14 @@ async function bnfFetchWork(workid) {
 
       FILTER REGEX(?rel, '^http://data.bnf.fr/vocabulary/roles/(${Object.keys(roles).join("|")})')
     }    `);
+    const done = new Set();
     const contributors = {};
     for (let {authorConcept, rel} of contributorRoles) {
-        rel = rel.slice(rel.lastIndexOf('/') + 1);
+        rel = roles[rel.slice(rel.lastIndexOf('/') + 1)];
+        if (done.has(authorConcept)) {
+            continue;
+        }
+        done.add(authorConcept);
         const authordata = await bnfFetchAuthority(authorConcept);
         if (contributors[rel] === undefined) {
             contributors[rel] = [authordata];
@@ -290,7 +295,7 @@ app.get('/work/:workid', async(req, res, next) => {
 app.get('/concert/:concert*', async (req, res, next) => {
     try {
         var concert = req.path.slice(9);
-        var expressions = await sparqlexec('http://data.doremus.org/sparql', `select ?expression group_concat(?title;separator="|") as ?title group_concat(?comment;separator="|") as ?comment ?oeuvrebnf ?databnf where {
+        var expressions = await sparqlexec('http://data.doremus.org/sparql', `select ?expression ?title ?comment ?oeuvrebnf ?databnf where {
             <${concert}> <http://erlangen-crm.org/current/P165_incorporates> ?expression .
             ?expression rdfs:label ?title .
             optional {
@@ -300,7 +305,7 @@ app.get('/concert/:concert*', async (req, res, next) => {
                 ?expression owl:sameAs ?oeuvrebnf .
                 ?oeuvrebnf owl:sameAs ?databnf.
             }
-        } group by ?expression ?oeuvrebnf ?databnf `);
+        } group by ?expression `);
         res.json(expressions);
     } catch (e) {
         //this will eventually be handled by your error handling middleware
