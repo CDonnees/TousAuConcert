@@ -183,18 +183,18 @@ app.get('/work/:workid', async(req, res, next) => {
 app.get('/concert/:concert*', async (req, res, next) => {
     try {
         var concert = req.path.slice(9);
-        res.json(await sparqlexec('http://data.doremus.org/sparql', `select ?expression group_concat(?title;separator="|") as ?title group_concat(?comment;separator="|") as ?comment ?oeuvrebnf  where {
-<${concert}> <http://erlangen-crm.org/current/P165_incorporates> ?expression .
-?expression rdfs:label ?title .
-optional {
- ?expression rdfs:comment ?comment .
-} .
-optional {
-?expression owl:sameAs ?oeuvrebnf .
-} .
-} 
-group by ?expression ?oeuvrebnf
-`));
+        var expressions = await sparqlexec('http://data.doremus.org/sparql', `select ?expression group_concat(?title;separator="|") as ?title group_concat(?comment;separator="|") as ?comment ?oeuvrebnf ?databnf where {
+            <${concert}> <http://erlangen-crm.org/current/P165_incorporates> ?expression .
+            ?expression rdfs:label ?title .
+            optional {
+                ?expression rdfs:comment ?comment .
+            } .
+            optional {
+                ?expression owl:sameAs ?oeuvrebnf .
+                ?oeuvrebnf owl:sameAs ?databnf.
+            }
+        } group by ?expression ?oeuvrebnf ?databnf `);
+        res.json(expressions);
     } catch (e) {
         //this will eventually be handled by your error handling middleware
         next(e)
