@@ -11,7 +11,7 @@ body {
 }
 
 #main {
-    width: 65%;
+    width: 63%;
     float: left;
     padding: 15px;
     box-shadow: 0 0 12px #999;
@@ -22,6 +22,7 @@ body {
     float: right;
     width: 28%;
     padding: 15px;
+    box-shadow: 0 0 12px #999;    
     border-radius: 5px;
 }
 
@@ -55,4 +56,12 @@ body {
     clear: both;
     overflow: hidden;
     margin: 5px 0;
+}
+
+#player {
+    max-width: 100%;
+}
+
+#player img {
+    max-width: 100%
 }
