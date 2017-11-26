@@ -75,7 +75,14 @@
             <audio controls>
                     <source :src="player.playlist[0].preview" />
                 </audio>
-            </div><!--
+            </div>
+            <div id="critics">
+                <div v-for="critic in critics.slice(0, 5)">
+                    <a :href="critic.uri"><img :src="critic.depiction" /></a>
+                    <p>{{critic.description}}</p>
+                </div>
+            </div>
+            <!--
             <div id="player">
               Deezer ? 
                     
