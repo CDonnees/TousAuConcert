@@ -109,6 +109,7 @@ function exposeData(data) {
         'http://data.bnf.fr/vocabulary/roles/r80': 'r80',
         'http://data.bnf.fr/vocabulary/roles/r160': 'r160',
         'http://data.bnf.fr/vocabulary/roles/r220': 'r220',
+        'eans': 'eans',
     };
     const exposed = {};
     for (const key of Object.keys(normalizeMap)) {
@@ -181,8 +182,28 @@ async function bnfFetchAuthority(noticeid) {
     return rawData;
 }
 
+
+async function fetchEANs(workid) {
+    const eanData = await sparqlexec('http://data.bnf.fr/sparql', `
+    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    PREFIX rdarelationships: <http://rdvocab.info/RDARelationshipsWEMI/>
+    PREFIX bnfroles: <http://data.bnf.fr/vocabulary/roles/>
+
+    select distinct ?ean where {
+        ?concept bnf-onto:FRBNF "${workid}"^^xsd:integer ;
+               foaf:focus ?work.
+        ?manifestation bnf-onto:ean ?ean ;
+                       rdarelationships:workManifested ?work.
+        }`
+    );
+    return eanData.map(row => row.ean);
+}
+
+
 async function bnfFetchWork(workid) {
     let workData = await bnfFetchAuthority(workid);
+    workData.eans = await fetchEANs(workid);
     let contributorRoles = await sparqlexec('http://data.bnf.fr/sparql', `
     PREFIX foaf: <http://xmlns.com/foaf/0.1/>
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
