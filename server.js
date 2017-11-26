@@ -1,5 +1,8 @@
 const fetch = require('node-fetch');
 const express = require('express');
+
+const {fetchCriticsFromGallica, fetchSheetsFromGallica} = require('./sru');
+
 const app = express();
 
 app.get('/', (req, res) => res.send('Hey!'));
@@ -211,6 +214,24 @@ async function bnfFetchWork(workid) {
     return workData;
 }
 
+app.get('/critics/:title/:year', async(req, res, next) => {
+    try {
+        res.json(await fetchCriticsFromGallica(req.params.title, req.params.year));
+    } catch (e) {
+        //this will eventually be handled by your error handling middleware
+        next(e)
+    }
+});
+
+
+app.get('/sheets/:title', async(req, res, next) => {
+    try {
+        res.json(await fetchSheetsFromGallica(req.params.title));
+    } catch (e) {
+        //this will eventually be handled by your error handling middleware
+        next(e)
+    }
+});
 
 app.get('/work/:workid', async(req, res, next) => {
     try {
