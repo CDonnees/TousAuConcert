@@ -5,7 +5,7 @@ const {fetchCriticsFromGallica, fetchSheetsFromGallica, fetchSoundFromGallica} =
 
 const app = express();
 
-app.get('/', (req, res) => res.send('Hey!'));
+app.use("/",express.static('vue/'));
 
 const CACHE = new Map();
 const roles = {
@@ -277,5 +277,46 @@ app.get('/concert/:concert*', async (req, res, next) => {
         next(e)
     }
 });
+
+app.get('/other_concert/:expresssion*', async (req, res, next) => {
+    try {
+        var expression = req.path.slice(15);
+        var concerts = await sparqlexec('http://data.doremus.org/sparql', `select ?expression ?title ?execution ?titreconcert ?date ?creationex ?comment ?lieu group_concat(concat(?name,' / ',?fctlabel,' / ',?interpreter);separator='|') as ?interpretre where {
+            <http://data.doremus.org/expression/f278628e-40cc-3c64-8ed3-42ab00e01d1f> owl:sameAs ?oeuvrebnf .
+            ?expression owl:sameAs ?oeuvrebnf;
+            rdfs:label ?title .
+            ?execution <http://data.doremus.org/ontology#U54_is_performed_expression_of> ?expression .
+            ?concert <http://erlangen-crm.org/efrbroo/R66_included_performed_version_of> ?expression ;
+            rdfs:label ?titreconcert .
+            optional {
+                ?concert <http://erlangen-crm.org/current/P4_has_time-span> ?timesp .
+                ?timesp rdfs:label ?date .
+            }
+            optional {
+                ?concert <http://erlangen-crm.org/current/P7_took_place_at> ?place .
+                ?place rdfs:label ?lieu .
+            } .
+            ?creationex <http://erlangen-crm.org/efrbroo/R17_created> ?execution .
+            optional {
+                ?creationex rdfs:comment ?comment .
+            } .
+            optional {
+                ?creationex <http://erlangen-crm.org/current/P9_consists_of> ?activity .
+                ?activity <http://erlangen-crm.org/current/P14_carried_out_by> ?interpreter .
+                ?activity <http://data.doremus.org/ontology#U31_had_function_of_type> | <http://data.doremus.org/ontology#U1_used_medium_of_performance> ?fonction .
+                ?interpreter rdfs:label ?name .
+                ?fonction rdfs:label | skos:prefLabel ?fctlabel .
+                FILTER (lang(?fctlabel)='fr') .
+                FILTER (!REGEX(?fctlabel, 'Femme'))
+            }
+            FILTER (?expression != <${expression}>)
+        } group by ?expression ?title ?execution ?titreconcert ?date ?creationex ?comment ?lieu`);
+        res.json(concerts);
+    } catch (e) {
+        //this will eventually be handled by your error handling middleware
+        next(e)
+    }
+});
+
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
