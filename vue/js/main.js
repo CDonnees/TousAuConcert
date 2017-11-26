@@ -6,11 +6,12 @@ new Vue({
         }
     },
     created() {
+
         axios
-        .get('./data.json')
+        .get('http://localhost:3000/work/13920002')
         .then(response => {
-            console.log(response.data)
-            this.data = response.data
+            this.oeuvre = response.data
+       
         })
         // .catch(e => () {
 
