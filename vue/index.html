@@ -20,12 +20,30 @@
 <body>
     <div id="app">
         <div id="main">
-            <div id="oeuvre">
-                <img src={{oeuvre.img.url}} :alt="oeuvre.prefLabel">
-                <h1>{{oeuvre.prefLabel}}</h1>
-                <p>{{oeuvre.year}}</p>
-                <p v-for='(description, index) in oeuvre.description' :key="index">{{description}}</p>
-                <p>{{oeuvre.note}}</p>
+            <div class="oeuvre">
+                <div class='header'>
+                    <img :src='oeuvre.depictions' :alt="oeuvre.prefLabel" class='thumbnailOeuvre' >
+                    <h1>{{oeuvre.prefLabel}}</h1>
+                </div>
+                <div id='content'>
+                    <p>{{oeuvre.year}}</p>
+                    <p v-for='(description, index) in oeuvre.description' :key="index">{{description}}</p>
+                    <p>{{oeuvre.note}}</p>
+                </div>
+            </div>
+            <div class='contributors'>
+                <div class='contributorsRole' v-for='(contributorsRole, role) in oeuvre.contributors' :key="role">
+                    <div class='contributor' v-for='(contributor, index) in contributorsRole' :key="index">
+                        <div class='header'>
+                            <img :src='contributor.depictions[0]' :alt="contributor.prefLabel" v-if='contributor.depictions' class='thumbnailContributor' />
+                            <h2>{{ contributor.prefLabel }}</h2>
+                        </div>
+                        <div class='content'>
+                            <p>{{ contributor.notes }}</p>
+                            <p v-if='contributor.abstract'>{{ contributor.abstract.abstract }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--
             <div id="autres_representations">
