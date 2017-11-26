@@ -4,5 +4,16 @@ new Vue({
         oeuvre: {
             title: 'test'
         }
+    },
+    created() {
+        axios
+        .get('./data.json')
+        .then(response => {
+            console.log(response.data)
+            this.data = response.data
+        })
+        // .catch(e => () {
+
+        // })
     }
 })

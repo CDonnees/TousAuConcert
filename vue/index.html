@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script>
+            (function(d, s, id) { 
+            var js, djs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return; 
+            js = d.createElement(s); js.id = id; 
+            js.src = "https://e-cdns-files.dzcdn.net/js/widget/loader.js"; 
+             djs.parentNode.insertBefore(js, djs);
+        }(document, "script", "deezer-widget-loader"));
+    </script>
 </head>
 
 <body>
@@ -15,6 +24,7 @@
                 <img src="oeuvre.img.url" alt="oeuvre.title">
                 <h2>{{oeuvre.title}}</h2>
                 <h3>{{oeuvre.auteur}}</h3>
+                <p>{{oeuvre.note}}</p>
             </div>
             <div id="autres_representations">
                 <div class="representation" v-for="(representation, index) in representations" :key="index">
@@ -37,25 +47,19 @@
             </div>
             <div id="player">
                 <!-- Deezer ? -->
-                <script>
-                        (function(d, s, id) { 
-                        var js, djs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return; 
-                        js = d.createElement(s); js.id = id; 
-                        js.src = "https://e-cdns-files.dzcdn.net/js/widget/loader.js"; 
-                         djs.parentNode.insertBefore(js, djs);
-                    }(document, "script", "deezer-widget-loader"));
-                </script>
                     
                     <div class="deezer-widget-player" data-src="https://www.deezer.com/plugins/player?format=square&autoplay=false&playlist=false&width=300&height=300&color=007FEB&layout=dark&size=medium&type=playlist&id=30595446&app_id=1" data-scrolling="no" data-frameborder="0" data-allowTransparency="true" data-width="300" data-height="300"></div>
             </div>
             <div id="partitions">
-
+                <ul>
+                    <li class="partition" v-for="partition in partitions"><a :href="partition.url">{{partition.title}}</a></li>
+                </ul>
             </div>
         </div>
     </div>
 
     <script src="//unpkg.com/vue"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
 
