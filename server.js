@@ -110,6 +110,17 @@ async function sparqlexec(endpoint, query) {
     return parseJsonResults(await result.json());
 }
 
+
+async function fetchFromDbpedia(uri) {
+    const dbpediaInfos = await sparqlexec('http://fr.dbpedia.org/sparql', `
+    SELECT ?abstract WHERE {
+        <${uri}> <http://dbpedia.org/ontology/abstract> ?abstract.
+        FILTER (lang(?abstract) = 'fr')
+    }`);
+    return dbpediaInfos.length === 1 ? dbpediaInfos[0] : null;
+}
+
+
 async function bnfFetchAuthority(noticeid) {
     const match = /ark:\/12148\/cb([0-9]{8})/.exec(noticeid);
     if (match !== null) {
@@ -130,6 +141,14 @@ async function bnfFetchAuthority(noticeid) {
         ?work ?attr ?value.
     }`));
     rawData = simplifyData(rawData, databnfPrefixes);
+    if (rawData['owl:sameAs'] !== undefined && rawData['owl:sameAs'] instanceof Array) {
+        for (const uri of rawData['owl:sameAs']) {
+            if (uri.startsWith('http://fr.dbpedia.org')) {
+                rawData['dbpedia:abstract'] = await fetchFromDbpedia(uri);
+            }
+        }
+    }
+    rawData = exposeData(rawData);
     CACHE.set(noticeid, rawData);
     return rawData;
 }
