@@ -18,6 +18,7 @@
   "homepage": "https://github.com/bnfhack/TousAuConcert#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "libxmljs": "^0.18.7",
     "lodash": "^4.17.4",
     "node-fetch": "^1.7.3"
   }
