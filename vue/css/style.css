@@ -16,12 +16,14 @@ body {
     padding: 15px;
     box-shadow: 0 0 12px #999;
     border-radius: 5px;
+    margin-bottom: 60px;
 }
 
 #bandeau {
     float: right;
     width: 28%;
     padding: 15px;
+    margin-bottom: 60px;
     box-shadow: 0 0 12px #999;    
     border-radius: 5px;
 }
@@ -33,8 +35,8 @@ body {
     margin-bottom: 20px;
 }
 
-#oeuvre > p:first-of-type {
-    font-size: 1.35em;
+p:first-of-type {
+    font-size: 1.45em;
     font-weight: bold;
     color: #666
 }

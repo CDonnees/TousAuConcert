@@ -25,9 +25,9 @@
                 <div class='header'>
                     <img :src='oeuvre.depictions' :alt="oeuvre.prefLabel" class='thumbnailOeuvre' >
                     <h1>{{oeuvre.prefLabel}}</h1>
+                    <p>{{oeuvre.year}}</p>                    
                 </div>
                 <div id='content'>
-                    <p>{{oeuvre.year}}</p>
                     <p v-for='(description, index) in oeuvre.description' :key="index">{{description}}</p>
                     <p>{{oeuvre.note}}</p>
                 </div>
