@@ -173,7 +173,8 @@ async function bnfFetchWork(workid) {
       FILTER REGEX(?rel, '^http://data.bnf.fr/vocabulary/roles/(${Object.keys(roles).join("|")})')
     }    `);
     const contributors = {};
-    for (const {authorConcept, rel} of contributorRoles) {
+    for (let {authorConcept, rel} of contributorRoles) {
+        rel = rel.slice(rel.lastIndexOf('/') + 1);
         const authordata = await bnfFetchAuthority(authorConcept);
         if (contributors[rel] === undefined) {
             contributors[rel] = [authordata];
