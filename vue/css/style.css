@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    padding: 40px;
+    font-family: 'Roboto', 'Open Sans', 'Fira Sans', 'Arial', sans-serif;
+}
+
+#app {
+    width: 1280px;
+    margin: 20px auto;
+}
+
+#main {
+    width: 65%;
+    float: left;
+    padding: 15px;
+    box-shadow: 0 0 12px #999;
+    border-radius: 5px;
+}
+
+#bandeau {
+    float: right;
+    width: 28%;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.thumbnailOeuvre {
+    width: 220px;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+
+#oeuvre > p:first-of-type {
+    font-size: 1.35em;
+    font-weight: bold;
+    color: #666
+}
+
+#content {
+    clear: both;
+}
+
+#oeuvre {
+
+}
+
+.contributor .header img {
+    float: left;
+    margin-right: 20px;
+}
+
+.contributor {
+    clear: both;
+    overflow: hidden;
+    margin: 5px 0;
+}
