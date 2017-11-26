@@ -13,6 +13,12 @@ async function fetchSheetsFromGallica(title) {
 }
 
 
+async function fetchSoundFromGallica(title) {
+    const response = await fetch(`http://gallica.bnf.fr/SRU?operation=searchRetrieve&version=1.2&query=%28gallica%20all%20%22${title}%22%29%20and%20dc.type%20all%20%22sonore%22&suggest=0`);
+    return parseResults(await response.text());
+}
+
+
 function parseResults(xml) {
     var doc = libxmljs.parseXml(xml);
     var children = [];
@@ -32,6 +38,9 @@ function parseResults(xml) {
                 }
             }
         }
+        if (properties.type === 'document sonore') {
+            properties.mp3uri = `${properties.uri}/f1.audio`;
+        }
         children.push(properties);
     }
     return children;
@@ -40,4 +49,5 @@ function parseResults(xml) {
 module.exports = {
     fetchCriticsFromGallica,
     fetchSheetsFromGallica,
+    fetchSoundFromGallica,
 };

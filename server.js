@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const express = require('express');
 
-const {fetchCriticsFromGallica, fetchSheetsFromGallica} = require('./sru');
+const {fetchCriticsFromGallica, fetchSheetsFromGallica, fetchSoundFromGallica} = require('./sru');
 
 const app = express();
 
@@ -232,6 +232,17 @@ app.get('/sheets/:title', async(req, res, next) => {
         next(e)
     }
 });
+
+
+app.get('/sound/:title', async(req, res, next) => {
+    try {
+        res.json(await fetchSoundFromGallica(req.params.title));
+    } catch (e) {
+        //this will eventually be handled by your error handling middleware
+        next(e)
+    }
+});
+
 
 app.get('/work/:workid', async(req, res, next) => {
     try {
