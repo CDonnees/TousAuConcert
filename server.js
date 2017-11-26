@@ -37,7 +37,7 @@ const databnfPrefixes = {
     'time': 'http://www.w3.org/TR/owl-time/',
     'marcrel': 'http://id.loc.gov/vocabulary/relators/',
     'bnfroles': 'http://data.bnf.fr/vocabulary/roles/',
-    'mo': 'http://musicontology.com/',
+    'mo': 'http://purl.org/ontology/mo/',
     'geo': 'http://www.w3.org/2003/01/geo/wgs84_pos#',
     'ign': 'http://data.ign.fr/ontology/topo.owl/',
     'insee': 'http://rdf.insee.fr/geo/',
