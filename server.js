@@ -251,113 +251,87 @@ async function bnfFetchWork(workid) {
     return workData;
 }
 
-app.get('/critics/:title/:author/:year', async(req, res, next) => {
-    try {
-        res.json(await fetchCriticsFromGallica(req.params.title, req.params.author, req.params.year));
-    } catch (e) {
-        //this will eventually be handled by your error handling middleware
-        next(e)
+
+function catcherror(fn) {
+    return (req, res, next) => {
+        Promise.resolve(fn(req, res, next)).catch(next);
     }
-});
+}
 
 
-app.get('/sheets/:title/:author', async(req, res, next) => {
-    try {
-        res.json(await fetchSheetsFromGallica(req.params.title, req.params.author));
-    } catch (e) {
-        //this will eventually be handled by your error handling middleware
-        next(e)
-    }
-});
+app.get('/critics/:title/:author/:year', catcherror(async(req, res) => {
+    res.json(await fetchCriticsFromGallica(req.params.title, req.params.author, req.params.year));
+}));
 
 
-app.get('/sound/:title/:author', async(req, res, next) => {
-    try {
-        res.json(await fetchSoundFromGallica(req.params.title, req.params.author));
-    } catch (e) {
-        //this will eventually be handled by your error handling middleware
-        next(e)
-    }
-});
+app.get('/sheets/:title/:author', catcherror(async(req, res) => {
+    res.json(await fetchSheetsFromGallica(req.params.title, req.params.author));
+}));
 
 
-app.get('/deezer/:eans', async (req, res, next) => {
-    try {
-        res.json(await fetchFromDeezer(req.params.eans.split(',')));
-    } catch (e) {
-        next(e);
-    }
-});
+app.get('/sound/:title/:author', catcherror(async(req, res) => {
+    res.json(await fetchSoundFromGallica(req.params.title, req.params.author));
+}));
 
-app.get('/work/:workid', async(req, res, next) => {
-    try {
-        res.json(await bnfFetchWork(req.params.workid));
-    } catch (e) {
-        //this will eventually be handled by your error handling middleware
-        next(e)
-    }
-});
 
-app.get('/concert/:concert*', async (req, res, next) => {
-    try {
-        var concert = req.path.slice(9);
-        var expressions = await sparqlexec('http://data.doremus.org/sparql', `select ?expression ?title ?comment ?oeuvrebnf ?databnf where {
-            <${concert}> <http://erlangen-crm.org/current/P165_incorporates> ?expression .
-            ?expression rdfs:label ?title .
-            optional {
-                ?expression rdfs:comment ?comment .
-            } .
-            optional {
-                ?expression owl:sameAs ?oeuvrebnf .
-                ?oeuvrebnf owl:sameAs ?databnf.
-            }
-        } group by ?expression `);
-        res.json(expressions);
-    } catch (e) {
-        //this will eventually be handled by your error handling middleware
-        next(e)
-    }
-});
+app.get('/deezer/:eans', catcherror(async(req, res) => {
+    res.json(await fetchFromDeezer(req.params.eans.split(',')));
+}));
 
-app.get('/other_concert/:expresssion*', async (req, res, next) => {
-    try {
-        var expression = req.path.slice(15);
-        var concerts = await sparqlexec('http://data.doremus.org/sparql', `select ?expression ?title ?execution ?titreconcert ?date ?creationex ?comment ?lieu group_concat(concat(?name,' / ',?fctlabel,' / ',?interpreter);separator='|') as ?interpretre where {
-            <http://data.doremus.org/expression/f278628e-40cc-3c64-8ed3-42ab00e01d1f> owl:sameAs ?oeuvrebnf .
-            ?expression owl:sameAs ?oeuvrebnf;
-            rdfs:label ?title .
-            ?execution <http://data.doremus.org/ontology#U54_is_performed_expression_of> ?expression .
-            ?concert <http://erlangen-crm.org/efrbroo/R66_included_performed_version_of> ?expression ;
-            rdfs:label ?titreconcert .
-            optional {
-                ?concert <http://erlangen-crm.org/current/P4_has_time-span> ?timesp .
-                ?timesp rdfs:label ?date .
-            }
-            optional {
-                ?concert <http://erlangen-crm.org/current/P7_took_place_at> ?place .
-                ?place rdfs:label ?lieu .
-            } .
-            ?creationex <http://erlangen-crm.org/efrbroo/R17_created> ?execution .
-            optional {
-                ?creationex rdfs:comment ?comment .
-            } .
-            optional {
-                ?creationex <http://erlangen-crm.org/current/P9_consists_of> ?activity .
-                ?activity <http://erlangen-crm.org/current/P14_carried_out_by> ?interpreter .
-                ?activity <http://data.doremus.org/ontology#U31_had_function_of_type> | <http://data.doremus.org/ontology#U1_used_medium_of_performance> ?fonction .
-                ?interpreter rdfs:label ?name .
-                ?fonction rdfs:label | skos:prefLabel ?fctlabel .
-                FILTER (lang(?fctlabel)='fr') .
-                FILTER (!REGEX(?fctlabel, 'Femme'))
-            }
-            FILTER (?expression != <${expression}>)
-        } group by ?expression ?title ?execution ?titreconcert ?date ?creationex ?comment ?lieu`);
-        res.json(concerts);
-    } catch (e) {
-        //this will eventually be handled by your error handling middleware
-        next(e)
-    }
-});
+app.get('/work/:workid', catcherror(async(req, res) => {
+    res.json(await bnfFetchWork(req.params.workid));
+}));
+
+app.get('/concert/:concert*', catcherror(async(req, res) => {
+    var concert = req.path.slice(9);
+    var expressions = await sparqlexec('http://data.doremus.org/sparql', `select ?expression ?title ?comment ?oeuvrebnf ?databnf where {
+        <${concert}> <http://erlangen-crm.org/current/P165_incorporates> ?expression .
+        ?expression rdfs:label ?title .
+        optional {
+            ?expression rdfs:comment ?comment .
+        } .
+        optional {
+            ?expression owl:sameAs ?oeuvrebnf .
+            ?oeuvrebnf owl:sameAs ?databnf.
+        }
+    } group by ?expression `);
+    res.json(expressions);
+}));
+
+app.get('/other_concert/:expresssion*', catcherror(async (req, res) => {
+    var expression = req.path.slice(15);
+    var concerts = await sparqlexec('http://data.doremus.org/sparql', `select ?expression ?title ?execution ?titreconcert ?date ?creationex ?comment ?lieu group_concat(concat(?name,' / ',?fctlabel,' / ',?interpreter);separator='|') as ?interpretre where {
+        <http://data.doremus.org/expression/f278628e-40cc-3c64-8ed3-42ab00e01d1f> owl:sameAs ?oeuvrebnf .
+        ?expression owl:sameAs ?oeuvrebnf;
+        rdfs:label ?title .
+        ?execution <http://data.doremus.org/ontology#U54_is_performed_expression_of> ?expression .
+        ?concert <http://erlangen-crm.org/efrbroo/R66_included_performed_version_of> ?expression ;
+        rdfs:label ?titreconcert .
+        optional {
+            ?concert <http://erlangen-crm.org/current/P4_has_time-span> ?timesp .
+            ?timesp rdfs:label ?date .
+        }
+        optional {
+            ?concert <http://erlangen-crm.org/current/P7_took_place_at> ?place .
+            ?place rdfs:label ?lieu .
+        } .
+        ?creationex <http://erlangen-crm.org/efrbroo/R17_created> ?execution .
+        optional {
+            ?creationex rdfs:comment ?comment .
+        } .
+        optional {
+            ?creationex <http://erlangen-crm.org/current/P9_consists_of> ?activity .
+            ?activity <http://erlangen-crm.org/current/P14_carried_out_by> ?interpreter .
+            ?activity <http://data.doremus.org/ontology#U31_had_function_of_type> | <http://data.doremus.org/ontology#U1_used_medium_of_performance> ?fonction .
+            ?interpreter rdfs:label ?name .
+            ?fonction rdfs:label | skos:prefLabel ?fctlabel .
+            FILTER (lang(?fctlabel)='fr') .
+            FILTER (!REGEX(?fctlabel, 'Femme'))
+        }
+        FILTER (?expression != <${expression}>)
+    } group by ?expression ?title ?execution ?titreconcert ?date ?creationex ?comment ?lieu`);
+    res.json(concerts);
+}));
 
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
