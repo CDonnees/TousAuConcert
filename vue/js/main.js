@@ -1,4 +1,4 @@
-/* global Vue axios */
+/* global Vue */
 new Vue({
     el: '#app',
     data: {
@@ -17,13 +17,12 @@ new Vue({
         var param = document.location.search.split('?')[1];
         var params = param.split('&');
         var work_id = params[0].split('=')[1];
-        axios
-            .get('http://localhost:3000/work/' + work_id)
-            //.get('http://localhost:3000/work/14005127')
+        fetch('http://localhost:3000/work/' + work_id)
+            .then(response => response.json())
             .then(response => {
-                this.oeuvre = response.data;
-                if (response.data.eans && response.data.eans.length) {
-                    fetch(`http://localhost:3000/deezer/${response.data.eans.join(',')}`)
+                this.oeuvre = response;
+                if (response.eans && response.eans.length) {
+                    fetch(`http://localhost:3000/deezer/${response.eans.join(',')}`)
                         .then(response => response.json())
                         .then(response => {
                             for (const album of response) {
@@ -35,18 +34,18 @@ new Vue({
                             }
                         });
                 }
-                let compname = response.data.contributors.compositeur[0].prefLabel;
+                let compname = response.contributors.compositeur[0].prefLabel;
                 compname = compname.split('(')[0].trim();
                 fetch(
-                    `http://localhost:3000/critics/${response.data.prefLabel}/${compname}/${
-                        response.data.year
+                    `http://localhost:3000/critics/${response.prefLabel}/${compname}/${
+                        response.year
                     }`
                 )
                     .then(response => response.json())
                     .then(response => {
                         this.critics = response;
                     });
-                fetch(`http://localhost:3000/sound/${response.data.prefLabel}/${compname}`)
+                fetch(`http://localhost:3000/sound/${response.prefLabel}/${compname}`)
                     .then(response => response.json())
                     .then(response => {
                         this.sound = response;

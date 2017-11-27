@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">    
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
     <script>
-            (function(d, s, id) { 
+            (function(d, s, id) {
             var js, djs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return; 
-            js = d.createElement(s); js.id = id; 
-            js.src = "https://e-cdns-files.dzcdn.net/js/widget/loader.js"; 
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://e-cdns-files.dzcdn.net/js/widget/loader.js";
              djs.parentNode.insertBefore(js, djs);
         }(document, "script", "deezer-widget-loader"));
     </script>
@@ -27,7 +27,7 @@
                     <div class='header'>
                         <img :src='oeuvre.depictions' :alt="oeuvre.prefLabel" class='thumbnailOeuvre' >
                         <h1>{{oeuvre.prefLabel}}</h1>
-                        <p>{{oeuvre.year}}</p>                    
+                        <p>{{oeuvre.year}}</p>
                     </div>
                     <div class='content'>
                         <p v-if='typeof oeuvre.description != "object"'>{{ oeuvre.description }}</p>
@@ -55,7 +55,7 @@
                 <!--
                 <div id="autres_representations">
                     <div class="representation" v-for="(representation, index) in representations" :key="index">
-                        
+
                     </div>
                 </div>
                 <div id="critiques">
@@ -68,7 +68,7 @@
             </section>
         </div>
         <div class="bandeau">
-             <!-- 
+             <!--
             <div id="picto">
                 <div class="picto" v-for="picto in pictos">
                     <img src="picto.url" alt="picto.title">
@@ -96,7 +96,7 @@
                     <p>{{sheet.description}}</p>
                 </div>
             </div>
-            
+
             <div id="gallica-sounds">
                 <div v-for="track in sound.slice(0, 5)">
                      <audio controls>
@@ -106,8 +106,8 @@
             </div>
             <!--
             <div id="player">
-              Deezer ? 
-                    
+              Deezer ?
+
                     <div class="deezer-widget-player" data-src="https://www.deezer.com/plugins/player?format=square&autoplay=false&playlist=false&width=300&height=300&color=007FEB&layout=dark&size=medium&type=playlist&id=30595446&app_id=1" data-scrolling="no" data-frameborder="0" data-allowTransparency="true" data-width="300" data-height="300"></div>
             </div>
             <div id="partitions">
@@ -117,11 +117,10 @@
             </div>
         -->
         </div>
-        
+
     </div>
 
     <script src="//unpkg.com/vue"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
 
