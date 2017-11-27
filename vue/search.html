@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+    <style>
+.form {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.form input {
+    font-size: 2em;
+}
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="form">
+            <form action="/ean">
+                <input type="text" placeholder="Entrez une œuvre" name="ean"></input>
+            </form>
+        </div>
+    </div>
+
+    <script src="//unpkg.com/vue"></script>
+</body>
+
+</html>

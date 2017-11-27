@@ -334,4 +334,22 @@ app.get('/other_concert/:expresssion*', catcherror(async (req, res) => {
 }));
 
 
+app.get('/ean', catcherror(async(req, res) => {
+    const results = await sparqlexec('http://data.bnf.fr/sparql', `
+    PREFIX bnf-onto: <http://data.bnf.fr/ontology/bnf-onto/>
+    PREFIX rdarelationships: <http://rdvocab.info/RDARelationshipsWEMI/>
+
+    SELECT ?bnfid WHERE {
+        ?x bnf-onto:ean "${req.query.ean}" ;
+            rdarelationships:workManifested ?work.
+        ?concept foaf:focus ?work ;
+            bnf-onto:FRBNF ?bnfid.
+    }`);
+    if (results.length) {
+        res.redirect(`/?work_id=${results[0].bnfid}`);
+    } else {
+        res.status(404).send('Œuvre non trouvée');
+    }
+}));
+
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
