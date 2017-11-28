@@ -22,7 +22,9 @@ async function fetchSoundFromGallica(title, author) {
 function parseResults(xml) {
     var doc = libxmljs.parseXml(xml);
     var children = [];
-    for (const dc of doc.find('.//oai_dc:dc', {oai_dc: 'http://www.openarchives.org/OAI/2.0/oai_dc/'})) {
+    for (const dc of doc.find('.//oai_dc:dc', {
+        oai_dc: 'http://www.openarchives.org/OAI/2.0/oai_dc/',
+    })) {
         const properties = {};
         for (const child of dc.childNodes()) {
             if (child.type() === 'element') {

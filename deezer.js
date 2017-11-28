@@ -8,10 +8,13 @@ function simplifyAlbumInfos(infos) {
         upc: infos.upc,
         cover: infos.cover_big,
         releaseDate: infos.release_date,
-        tracks: infos.tracks ? infos.tracks.data.filter(track => track.readable && track.preview).map(track => _.pick(track, 'title', 'preview')) : [],
+        tracks: infos.tracks
+            ? infos.tracks.data
+                  .filter(track => track.readable && track.preview)
+                  .map(track => _.pick(track, 'title', 'preview'))
+            : [],
     };
 }
-
 
 async function fetchFromDeezer(eans) {
     const albumInfos = [];

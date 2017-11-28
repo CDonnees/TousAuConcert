@@ -1,12 +1,12 @@
 const fetch = require('node-fetch');
 const express = require('express');
 
-const {fetchCriticsFromGallica, fetchSheetsFromGallica, fetchSoundFromGallica} = require('./sru');
-const {fetchFromDeezer} = require('./deezer');
+const { fetchCriticsFromGallica, fetchSheetsFromGallica, fetchSoundFromGallica } = require('./sru');
+const { fetchFromDeezer } = require('./deezer');
 
 const app = express();
 
-app.use("/",express.static('vue/'));
+app.use("/", express.static('vue/'));
 
 const CACHE = new Map();
 const roles = {
@@ -75,7 +75,7 @@ function nsprop(uri, namespaces) {
 
 function simplifyData(data, namespaces) {
     const props = {};
-    for (let {attr, value} of data) {
+    for (let { attr, value } of data) {
         if (attr === undefined) {
             continue;
         }
@@ -126,9 +126,9 @@ function parseJsonResults(rset) {
     for (const row of rset.results.bindings) {
         const result = {};
         for (const varname of rset.head.vars) {
-            if(row[varname] === undefined){
+            if (row[varname] === undefined) {
                 result[varname] = null;
-            }else{
+            } else {
                 result[varname] = row[varname].value;
             }
         }
@@ -200,8 +200,7 @@ async function fetchEANs(workid) {
                foaf:focus ?work.
         ?manifestation bnf-onto:ean ?ean ;
                        rdarelationships:workManifested ?work.
-        }`
-    );
+        }`);
     return eanData.map(row => row.ean);
 }
 
@@ -234,7 +233,7 @@ async function bnfFetchWork(workid) {
     }    `);
     const done = new Set();
     const contributors = {};
-    for (let {authorConcept, rel} of contributorRoles) {
+    for (let { authorConcept, rel } of contributorRoles) {
         rel = roles[rel.slice(rel.lastIndexOf('/') + 1)];
         if (done.has(authorConcept)) {
             continue;
@@ -298,7 +297,7 @@ app.get('/concert/:concert*', catcherror(async(req, res) => {
     res.json(expressions);
 }));
 
-app.get('/other_concert/:expresssion*', catcherror(async (req, res) => {
+app.get('/other_concert/:expresssion*', catcherror(async(req, res) => {
     var expression = req.path.slice(15);
     var concerts = await sparqlexec('http://data.doremus.org/sparql', `select ?expression ?title ?execution ?titreconcert ?date ?creationex ?comment ?lieu group_concat(concat(?name,' / ',?fctlabel,' / ',?interpreter);separator='|') as ?interpretre where {
         <http://data.doremus.org/expression/f278628e-40cc-3c64-8ed3-42ab00e01d1f> owl:sameAs ?oeuvrebnf .
@@ -352,4 +351,5 @@ app.get('/ean', catcherror(async(req, res) => {
     }
 }));
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+// eslint-disable-next-line no-console
+app.listen(3000, () => console.log('TousAuConcert listening on port 3000!'));
